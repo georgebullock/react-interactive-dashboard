@@ -1,23 +1,31 @@
-# REACT PLAYGROUND
+# REACT INTERACTIVE DASHBOARD
+
+This project is still in the planning phase. For now, this repo is a scaffold for the project. The README.md will be updated as I make progress towards completing the project. 
 
 ### OVERVIEW
 
-React Playground is a project boilerplate I created for small React projects and
-practicing test-driven development with Jest and React Testing Library. It's also well-suited for
-exploring React features in a realistic environment.
+React Interactive Dashboard is a commenting application. The app will support two user types: admin users and non-admin users. The only feature for non-admin users is making comments (which post to a main thread) and deleting their own comments. Admin users will be able to make comments, delete their own (and other users) comments, and access an admin dashboard where they can view comment analytics.
 
-### THE PROJECT HAS EVERYTHING YOU NEED TO GET STARTED 🚀
-
-- HTML5 🔥
-- CSS3 via SCSS 🔥
-- ES6+ via Babel 🔥
-- Module Bundling via Webpack 🔥
-- Live Reload via Webpack Dev Server 🔥
-- Formatting via Prettier 🔥
-- Linting via ESLint 🔥
-- Type Checking via Flow 🔥
-- Unit Testing via Jest and React Testing Library 🔥
-- A small starter project named [React Voting App](https://github.com/georgebullock/react-playground) 
+### THE PROJECT STACK 
+Bold items are required. All other items are “nice to haves”.
+- **HTML** (Structure, semantics)
+- **CSS** (Layout, styling, transitions, animations)
+- Emotion (CSS in JS library)
+- **React** (UI library)
+- **React router** (Routing)
+- **Redux** (State management)
+- Formik (Form handling)
+- Redux Form (Form handling)
+- TBD Redux Async Library (Async data handling)
+- **GraphQL** (Data handling)
+- **node.js** (Server)
+- **MySQL** (Storage)
+- **ESLint** (Linting)
+- **Prettier** (Formatting)
+- **TypeScript** (Type checking)
+- **Jest + React Testing Library** (Unit Testing)
+- **Cypress** (Integration testing)
+- **Circle CI** (Continuous integration)
 
 > ⚠️ Warning: The project uses husky and lint-staged to prevent you from
 > committing code that doesn't pass validation (i.e. formatting, linting, and
@@ -25,16 +33,10 @@ exploring React features in a realistic environment.
 
 ### SETUP IS EASY 👇
 
-If you want to use React Playground for a new project, then click the green **``Use
-this template``** button above and follow the instructions to create a new repo
-based on this one.
-
-If you just want to review the code, then follow the steps below.
-
 ##### Step 1:
 
 ```bash
-git clone git@github.com:georgebullock/react-playground.git
+git clone 
 ```
 
 ##### Step 2:
@@ -61,26 +63,8 @@ yarn start
 
 #### Project Motivation:
 
-I was motivated to do this project for three reasons:
-
-1. I needed a customized starting point for the type of small, learning,
-   projects that are on my personal development roadmap.
-2. I needed an environment where I can practice TDD with React, Jest, and React Testing Library.
-3. I wanted to move away from repl.it and Codpen for playing with code. With
-   React Playground, I can quickly spin up a familiar development
-   environment and try things out without losing access to important features
-   (e.g. Chrome debugger).
-
 #### Project Status:
-
-This project is semi-active. I don't plan to add any additional features, but I
-will keep the project's dependencies up-to-date.
 
 #### Project Roadmap:
 
-No additional features planned.
-
 #### Known Issues:
-
-None that I'm aware of. If you find something, please create an issue or send me
-a pull request.

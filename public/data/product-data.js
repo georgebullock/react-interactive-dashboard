@@ -1,8 +1,6 @@
-// @flow
-
 import { generateVoteCount } from '../../src/helpers/generate-vote-count/generate-vote-count';
 
-export const ProductData: Array<Object> = [
+export const ProductData = [
 	{
 		id: 1,
 		title: 'Yellow Pail',

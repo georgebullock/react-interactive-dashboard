@@ -1,22 +1,7 @@
-//@flow
 import React from 'react';
 
-type Props = {
-	id: number,
-	productTitle: string,
-	productDescription: string,
-	productImageUrl: string,
-	votes: Function,
-	userAvatarUrl: string,
-	onVoteClick: Function
-};
-
-type EventObject = {
-	preventDefault: Function
-};
-
-class Product extends React.Component<Props> {
-	handleVoteClick = (e: EventObject) => {
+class Product extends React.Component {
+	handleVoteClick = e => {
 		e.preventDefault();
 		this.props.onVoteClick(this.props.id);
 	};

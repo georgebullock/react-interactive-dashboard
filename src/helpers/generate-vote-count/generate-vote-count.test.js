@@ -1,4 +1,3 @@
-//@flow
 import { generateVoteCount } from './generate-vote-count';
 
 describe('generateVoteCount', () => {

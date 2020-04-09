@@ -1,27 +1,22 @@
-//@flow
 import React from 'react';
 import { ProductData } from './../../../public/data/product-data';
 import Product from './../Product/Product';
 
-type State = {
-	products: Array<Object>
-};
-
-class ProductList extends React.Component<{}, State> {
-	state: State = {
+class ProductList extends React.Component {
+	state = {
 		products: []
 	};
 
 	componentDidMount() {
-		const products: Array<Object> = ProductData.sort((a, b) => {
+		const products = ProductData.sort((a, b) => {
 			return b.votes - a.votes;
 		});
 
 		this.setState({ products: [...products] });
 	}
 
-	handleUpVote = (productId: number) => {
-		const state: State = Object.assign({}, this.state);
+	handleUpVote = productId => {
+		const state = Object.assign({}, this.state);
 
 		state.products.map(product => {
 			if (product.id === productId) {

@@ -11,10 +11,9 @@
 		"eslint:recommended",
 		"plugin:react/recommended",
 		"eslint-config-prettier",
-		"plugin:flowtype/recommended",
 		"plugin:jest-dom/recommended"
 	],
-	"plugins": ["flowtype", "jest-dom"],
+	"plugins": ["jest-dom"],
 	"rules": {
 		"no-console": "off",
 		"react/react-in-jsx-scope": "off"
@@ -22,8 +21,7 @@
 	"settings": {
 		"react": {
 			"pragma": "react",
-			"version": "detect",
-			"flowVersion": "0.119"
+			"version": "detect"
 		}
 	},
 	"env": {

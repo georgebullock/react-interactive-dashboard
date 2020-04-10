@@ -4,7 +4,7 @@ module.exports = {
 	presets: [
 		['@babel/preset-env', { modules: isTest ? 'commonjs' : false }],
 		'@babel/preset-react',
-		'@babel/preset-flow'
+		'@babel/preset-typescript'
 	],
 	plugins: ['@babel/plugin-proposal-class-properties']
 };

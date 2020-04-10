@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"noEmit": true,
+		"baseUrl": "./src",
+		"target": "esnext",
+		"jsx": "react",
+		"allowJs": true,
+		"noImplicitThis": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true
+	}
+}

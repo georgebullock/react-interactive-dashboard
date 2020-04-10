@@ -5,17 +5,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-	entry: { main: './src/app.js' },
+	entry: { main: './src/app.tsx' },
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].[chunkhash].js'
+	},
+	resolve: {
+		extensions: ['.ts', '.tsx', '.js']
 	},
 	devtool: 'eval-source-map',
 	stats: 'errors-warnings',
 	module: {
 		rules: [
 			{
-				test: /\.(js|jsx)$/,
+				test: /\.(ts|tsx|js|jsx)$/,
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',

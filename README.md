@@ -1,13 +1,22 @@
 # REACT INTERACTIVE DASHBOARD
 
-This project is still in the planning phase. For now, this repo is a scaffold for the project. The README.md will be updated as I make progress towards completing the project. 
+This project is still in the planning phase. For now, this repo is a scaffold
+for the project. The README.md will be updated as I make progress towards
+completing the project.
 
 ### OVERVIEW
 
-React Interactive Dashboard is a commenting application. The app will support two user types: admin users and non-admin users. The only feature for non-admin users is making comments (which post to a main thread) and deleting their own comments. Admin users will be able to make comments, delete their own (and other users) comments, and access an admin dashboard where they can view comment analytics.
+React Interactive Dashboard is a commenting application. The app will support
+two user types: admin users and non-admin users. The only feature for non-admin
+users is making comments (which post to a main thread) and deleting their own
+comments. Admin users will be able to make comments, delete their own (and other
+users) comments, and access an admin dashboard where they can view comment
+analytics.
 
-### THE PROJECT STACK 
+### THE PROJECT STACK
+
 Bold items are required. All other items are “nice to haves”.
+
 - **HTML** (Structure, semantics)
 - **CSS** (Layout, styling, transitions, animations)
 - Emotion (CSS in JS library)
@@ -36,7 +45,7 @@ Bold items are required. All other items are “nice to haves”.
 ##### Step 1:
 
 ```bash
-git clone 
+git clone
 ```
 
 ##### Step 2:
@@ -53,8 +62,8 @@ yarn start
 
 > ⚠️ Warning: **The project requires node v12.6.0**.
 
-> 💡 Tip: If you're using nvm, you can
-> run `nvm use` to automatically switch to v12.6.0.
+> 💡 Tip: If you're using nvm, you can run `nvm use` to automatically switch to
+> v12.6.0.
 
 > 💡 Tip: Check out the `scripts` object (inside the `package.json`) for
 > additional commands.

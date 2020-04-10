@@ -1,4 +1,3 @@
-//@flow
-export const generateVoteCount = (): number => {
+export const generateVoteCount = () => {
 	return Math.floor(Math.random() * 50 + 15);
 };

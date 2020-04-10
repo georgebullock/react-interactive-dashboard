@@ -1,8 +1,10 @@
 import React from 'react';
 
 class ProductList extends React.Component {
-	render() {
-		return <div className="message">Hello world</div>;
+	text = `React Interactive Dashboard`;
+
+	render(): React.ReactNode {
+		return <h1 className="ui dividing centered header">{this.text}</h1>;
 	}
 }
 

@@ -1,7 +1,7 @@
 {
-	"name": "react-interactive-dashboard",
+	"name": "react-interactive-dashboard-client",
 	"version": "1.0.0",
-	"description": "React Interactive Dashboard is a project I'm doing to level up my back of the frontend skills",
+	"description": "React Interactive Dashboard is a project I'm doing to level up my back-of-the-frontend, testing, and React skills",
 	"main": "index.js",
 	"scripts": {
 		"start": "webpack-dev-server --mode development",
@@ -98,6 +98,8 @@
 	"dependencies": {
 		"react": "^16.13.0",
 		"react-dom": "^16.13.0",
-		"semantic-ui-react": "^0.88.2"
+		"semantic-ui-react": "^0.88.2",
+		"cross-env": "5.0.5",
+		"react-interactive-dashboard-server": "1.0.0"
 	}
 }

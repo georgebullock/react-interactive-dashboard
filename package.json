@@ -1,0 +1,6 @@
+{
+	"private": true,
+	"name": "react-interactive-dashboard",
+	"workspaces": ["src/*"],
+	"scripts": {} 
+}

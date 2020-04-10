@@ -1,10 +1,6 @@
 # REACT INTERACTIVE DASHBOARD
 
-This project is still in the planning phase. For now, this repo is a scaffold
-for the project. The README.md will be updated as I make progress towards
-completing the project.
-
-### OVERVIEW
+### OVERVIEW 
 
 React Interactive Dashboard is a commenting application. The app will support
 two user types: admin users and non-admin users. The only feature for non-admin
@@ -12,6 +8,12 @@ users is making comments (which post to a main thread) and deleting their own
 comments. Admin users will be able to make comments, delete their own (and other
 users) comments, and access an admin dashboard where they can view comment
 analytics.
+
+Shoutouts to my former team leads and still friends that are advising me and reviewing my code:
+1. @Sebastian-Fitzner
+1. @giuseppeminnella
+
+Seriously, thanks guys!
 
 ### THE PROJECT STACK
 
@@ -33,7 +35,7 @@ Bold items are required. All other items are “nice to haves”.
 - **Prettier** (Formatting)
 - **TypeScript** (Type checking)
 - **Jest + React Testing Library** (Unit Testing)
-- **Cypress** (Integration testing)
+- **Cypress** (Integration and E2E testing)
 - **Circle CI** (Continuous integration)
 
 > ⚠️ Warning: The project uses husky and lint-staged to prevent you from
@@ -45,7 +47,7 @@ Bold items are required. All other items are “nice to haves”.
 ##### Step 1:
 
 ```bash
-git clone
+git clone git@github.com:georgebullock/react-interactive-dashboard.git
 ```
 
 ##### Step 2:
@@ -72,8 +74,22 @@ yarn start
 
 #### Project Motivation:
 
+I'm doing this project to level up my "back of the frontend", testing (TDD, integration, E2E), and React skills.
+
 #### Project Status:
+
+Active. Work in progress.
 
 #### Project Roadmap:
 
+1. Node server
+1. MySQL database
+1. Node API
+1. Static React app
+1. Stateful React app
+1. Server communication
+1. GraphQL proxy
+
 #### Known Issues:
+
+None that I'm aware of. If you find something feel free to create an issue or send me a pull request.

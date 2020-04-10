@@ -9,7 +9,7 @@ comments. Admin users will be able to make comments, delete their own (and other
 users) comments, and access an admin dashboard where they can view comment
 analytics.
 
-Shoutouts to my former team leads and still friends that are advising me and reviewing my code:
+Shoutouts to friends and former Aperto / IBM iX team leads that are still helping me out with advice and code reviews:
 1. @Sebastian-Fitzner
 1. @giuseppeminnella
 

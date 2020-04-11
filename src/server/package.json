@@ -2,6 +2,7 @@
 	"name": "react-interactive-dashboard-server",
 	"version": "1.0.0",
 	"dependencies": {
-		"cross-env": "5.0.5"
+		"cross-env": "5.0.5",
+		"express": "^4.17.1"
 	}
 }

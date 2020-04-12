@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "React Interactive Dashboard is a project I'm doing to level up my back-of-the-frontend, testing, and React skills",
   "scripts": {
-    "start": "node"
+    "start": "nodemon src/app.js"
   },
   "keywords": [
     "javascript",

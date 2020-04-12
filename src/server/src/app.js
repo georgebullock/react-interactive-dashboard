@@ -19,6 +19,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.listen(port)
 
 module.exports = app;

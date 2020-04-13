@@ -6,12 +6,12 @@ React Interactive Dashboard is a commenting application. The app will support
 two user types: admin users and non-admin users. The only feature for non-admin
 users is making comments (which post to a main thread) and deleting their own
 comments. Admin users will be able to make comments, delete their own (and other
-users) comments, and access an admin dashboard where they can view comment
+user's) comments, and access an admin dashboard where they can view comment
 analytics.
 
-Shoutouts to friends and former Aperto / IBM iX team leads that are still helping me out with advice and code reviews:
-1. @Sebastian-Fitzner
-1. @giuseppeminnella
+Shoutouts to my friends and former Aperto / IBM iX team leads that are still helping me out with advice and code reviews:
+1. [@sebastian-fitzner](https://github.com/Sebastian-Fitzner)
+1. [@giuseppeminnella](https://github.com/giuseppeminnella)
 
 Seriously, thanks guys!
 

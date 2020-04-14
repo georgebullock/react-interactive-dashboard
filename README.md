@@ -81,14 +81,14 @@ I'm doing this project to level up my "back of the frontend", testing (TDD, inte
 Active. Work in progress.
 
 #### Project Roadmap:
-
-1. Node server
-1. MySQL database
-1. Node API
-1. Static React app
-1. Stateful React app
-1. Server communication
-1. GraphQL proxy
+- [ ] Node server
+- [ ] MySQL database
+- [ ] Joint Client Server Config
+- [ ] Node API
+- [ ] Static React app
+- [ ] Stateful React app
+- [ ] Server communication
+- [ ] GraphQL proxy
 
 #### Known Issues:
 

@@ -81,7 +81,7 @@ I'm doing this project to level up my "back of the frontend", testing (TDD, inte
 Active. Work in progress.
 
 #### Project Roadmap:
-- [ ] Node server
+- [x] Node server
 - [ ] MySQL database
 - [ ] Joint Client Server Config
 - [ ] Node API

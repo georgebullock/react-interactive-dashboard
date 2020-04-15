@@ -8,9 +8,10 @@ const port = 9000;
 
 app.use(logger("dev"));
 app.use(helmet());
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+
 
 app.get("/", (req, res) => {
   res.json({

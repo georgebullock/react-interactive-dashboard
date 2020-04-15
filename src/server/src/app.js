@@ -11,7 +11,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
-	res.json({message: `Serving React Interactive Dashboard Server on port ${port}`});
+  res.json({
+    message: `Serving React Interactive Dashboard Server on port ${port}`,
+  });
 });
 
 app.listen(port);

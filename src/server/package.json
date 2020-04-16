@@ -1,30 +1,35 @@
 {
-  "name": "react-interactive-dashboard-server",
-  "version": "1.0.0",
-  "description": "React Interactive Dashboard is a project I'm doing to level up my back-of-the-frontend, testing, and React skills",
-  "scripts": {
-    "start": "nodemon src/app.js",
-    "lint": "eslint . --ext .js, .ts --no-error-on-unmatched-pattern"
-  },
-  "keywords": [
-    "javascript",
-    "node"
-  ],
-  "author": "George Bullock",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/georgebullock/react-interactive-dashboard/issues"
-  },
-  "homepage": "https://github.com/georgebullock/react-interactive-dashboard#readme",
-  "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "cross-env": "5.0.5",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "morgan": "~1.9.1"
-  },
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "nodemon": "^2.0.3"
-  }
+	"name": "react-interactive-dashboard-server",
+	"version": "1.0.0",
+	"description": "React Interactive Dashboard is a project I'm doing to level up my back-of-the-frontend, testing, and React skills",
+	"scripts": {
+		"start": "nodemon src/app.js",
+		"lint": "eslint . --ext .js, .ts --no-error-on-unmatched-pattern",
+		"prettier": "prettier \"**/*.+(js|jsx|json|css|scss|ts|tsx|md|mdx|graphql)\"",
+		"format": "npm run prettier -- --write"
+	},
+	"keywords": [
+		"javascript",
+		"node"
+	],
+	"author": "George Bullock",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/georgebullock/react-interactive-dashboard/issues"
+	},
+	"homepage": "https://github.com/georgebullock/react-interactive-dashboard#readme",
+	"dependencies": {
+		"cookie-parser": "~1.4.4",
+		"cross-env": "5.0.5",
+		"debug": "~2.6.9",
+		"express": "~4.16.1",
+		"morgan": "~1.9.1"
+	},
+	"devDependencies": {
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.10.1",
+		"eslint-plugin-prettier": "^3.1.3",
+		"nodemon": "^2.0.3",
+		"prettier": "^2.0.4"
+	}
 }

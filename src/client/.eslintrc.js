@@ -9,10 +9,10 @@ module.exports = {
 	extends: [
 		'eslint:recommended',
 		'plugin:react/recommended',
-		'eslint-config-prettier',
+		'plugin:prettier/recommended',
 		'plugin:jest-dom/recommended'
 	],
-	plugins: ['jest-dom'],
+	plugins: ['prettier', 'jest-dom'],
 	rules: {
 		'no-console': 'off',
 		'react/react-in-jsx-scope': 'off'

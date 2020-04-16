@@ -82,7 +82,7 @@ Active. Work in progress.
 
 #### Project Roadmap:
 - [x] Node server
-- [ ] MySQL database
+- [x] MySQL database
 - [ ] Joint Client Server Config
 - [ ] Node API
 - [ ] Static React app

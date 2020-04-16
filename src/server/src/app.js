@@ -1,10 +1,10 @@
+require("dotenv").config();
 const express = require("express");
 const helmet = require('helmet');
 const logger = require("morgan");
-const path = require("path");
 const cookieParser = require("cookie-parser");
 const app = express();
-const port = 9000;
+const port = process.env.SERVER_PORT;
 
 app.use(logger("dev"));
 app.use(helmet());

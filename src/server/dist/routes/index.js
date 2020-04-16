@@ -1,6 +1,7 @@
 "use strict";
-var express = require('express');
-var router = express.Router();
+Object.defineProperty(exports, "__esModule", { value: true });
+const express = require('express');
+const router = express.Router();
 /* GET home page. */
 router.get('/', function (req, res) {
     res.send('respond with a resource');

@@ -1,12 +1,14 @@
 {
 	"compilerOptions": {
 		"target": "esnext",
+		"lib": ["esnext"],
 		"module": "commonjs",
+		"types": ["node"],
 		"allowJs": true,
 		"rootDir": "./src",
 		"outDir": "dist",
 		"strict": true,
-		"noImplicitAny": true,
+		"noImplicitAny": false,
 		"moduleResolution": "node",
 		"esModuleInterop": true,
 		"sourceMap": true,

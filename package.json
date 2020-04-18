@@ -1,8 +1,8 @@
 {
-	"private": true,
-	"name": "react-interactive-dashboard",
-	"workspaces": ["src/*"],
-	"scripts": {
-	
-	} 
+  "private": true,
+  "name": "react-interactive-dashboard",
+  "workspaces": [
+    "src/*"
+  ],
+  "scripts": {}
 }

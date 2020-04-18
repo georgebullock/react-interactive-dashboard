@@ -1,6 +1,9 @@
 # dependencies
 **/node_modules
 
+# output folders
+dist
+
 # environment variables
 .env
 

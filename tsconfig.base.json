@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "allowJs": true,
+    "esModuleInterop": true,
+	"composite": true
+  }
+}
+

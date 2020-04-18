@@ -6,7 +6,7 @@ dist
 
 # environment variables
 .env
-yarn-error.log
 
 # misc
 .vscode
+

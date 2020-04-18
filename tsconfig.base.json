@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": ["esnext"],
-    "allowJs": true,
+    "lib": ["esnext", "dom"],
     "esModuleInterop": true,
     "composite": true,
     "noImplicitThis": true

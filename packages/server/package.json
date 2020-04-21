@@ -6,7 +6,7 @@
 		"start:dev": "nodemon",
 		"start:prod": "npm run build && node dist/app.js",
 		"build": "rimraf ./dist && tsc",
-		"lint": "eslint . --ext .js, .ts --no-error-on-unmatched-pattern",
+		"lint": "eslint . --ext .js, .jsx, .ts, .tsx --no-error-on-unmatched-pattern",
 		"prettier": "prettier \"**/*.+(js|jsx|json|css|scss|ts|tsx|md|mdx|graphql)\"",
 		"types": "tsc",
 		"test": "jest",

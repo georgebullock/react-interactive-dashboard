@@ -5,8 +5,8 @@
     "src/*"
   ],
   "scripts": {
+    "start": "concurrently --kill-others-on-fail \"yarn server\"  \"yarn client\"",
     "client": "yarn workspace react-interactive-dashboard-client start",
-    "server": "yarn workspace react-interactive-dashboard-server start:dev",
-    "start": "concurrently --kill-others-on-fail \"yarn server\"  \"yarn client\""
+    "server": "yarn workspace react-interactive-dashboard-server start:dev"
   }
 }

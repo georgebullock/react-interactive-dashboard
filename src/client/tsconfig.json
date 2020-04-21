@@ -2,7 +2,7 @@
 	"extends": "./../../tsconfig.base.json",
 	"compilerOptions": {
 		"noEmit": true,
-		"baseUrl": "src",
+		"lib": ["es2019", "dom"],
 		"jsx": "react",
 		"allowSyntheticDefaultImports": true,
 		"skipLibCheck": true

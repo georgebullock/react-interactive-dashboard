@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["esnext", "dom"],
+	"baseUrl": ".",
+    "target": "es2019",
     "esModuleInterop": true,
-    "composite": true,
-    "noImplicitThis": true
+    "noImplicitThis": true,
+	"composite": true,
   }
 }

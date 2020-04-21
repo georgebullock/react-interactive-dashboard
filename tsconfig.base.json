@@ -2,8 +2,11 @@
   "compilerOptions": {
 	"baseUrl": ".",
     "target": "es2019",
+	"moduleResolution": "node",
+	"skipLibCheck": false,
     "esModuleInterop": true,
     "noImplicitThis": true,
+	"noImplicitAny": false,
 	"composite": true,
   }
 }

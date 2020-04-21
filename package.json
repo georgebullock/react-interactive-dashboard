@@ -2,7 +2,7 @@
   "private": true,
   "name": "react-interactive-dashboard",
   "workspaces": [
-    "src/*"
+    "packages/*"
   ],
   "scripts": {
     "start": "concurrently --kill-others-on-fail \"yarn server\"  \"yarn client\"",

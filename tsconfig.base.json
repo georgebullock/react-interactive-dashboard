@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-	"baseUrl": ".",
+    "baseUrl": ".",
     "target": "es2019",
-	"moduleResolution": "node",
-	"skipLibCheck": false,
+    "moduleResolution": "node",
+	"lib": ["es2019", "dom"],
+    "skipLibCheck": false,
     "esModuleInterop": true,
     "noImplicitThis": true,
-	"noImplicitAny": false,
-	"composite": true,
+    "noImplicitAny": false
   }
 }

@@ -4,8 +4,8 @@
 		"module": "commonjs",
 		"rootDir": "src",
 		"outDir": "dist",
-		"lib": ["es2019"],
 		"sourceMap": true,
-		"resolveJsonModule": true
+		"resolveJsonModule": true,
+		"composite": true
 	}
 }

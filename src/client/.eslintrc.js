@@ -15,7 +15,7 @@ module.exports = {
 	plugins: ['prettier', 'jest-dom'],
 	rules: {
 		'no-console': 'off',
-		"prettier/prettier": "error",
+		'prettier/prettier': 'error',
 		'react/react-in-jsx-scope': 'off'
 	},
 	settings: {

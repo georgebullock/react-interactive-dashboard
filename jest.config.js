@@ -1,4 +1,4 @@
-{
+module.exports = {
   projects: [
     {
       displayName: "CLIENT",
@@ -7,6 +7,6 @@
     {
       displayName: "SERVER",
       testMatch: ["<rootDir>/packages/server/jest.config.js"],
-    }
+    },
   ];
 }

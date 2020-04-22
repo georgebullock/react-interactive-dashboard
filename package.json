@@ -8,6 +8,6 @@
     "start": "concurrently --kill-others-on-fail \"yarn server\"  \"yarn client\"",
     "client": "yarn workspace react-interactive-dashboard-client start",
     "server": "yarn workspace react-interactive-dashboard-server start:dev",
-	"test": "jest"
+    "test": "jest"
   }
 }

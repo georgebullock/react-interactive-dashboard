@@ -3,5 +3,6 @@ coverage
 dist
 build
 .build
+.vscode
 
 # Add additional files / globs here

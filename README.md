@@ -1,6 +1,6 @@
 # REACT INTERACTIVE DASHBOARD
 
-### OVERVIEW 
+### OVERVIEW
 
 React Interactive Dashboard is a commenting application. The app will support
 two user types: admin users and non-admin users. The only feature for non-admin
@@ -9,7 +9,9 @@ comments. Admin users will be able to make comments, delete their own (and other
 user's) comments, and access an admin dashboard where they can view comment
 analytics.
 
-Shoutouts to my friends and former Aperto / IBM iX team leads that are still helping me out with advice and code reviews:
+Shoutouts to my friends and former Aperto / IBM iX team leads that are still
+helping me out with advice and code reviews:
+
 1. [@sebastian-fitzner](https://github.com/Sebastian-Fitzner)
 1. [@giuseppeminnella](https://github.com/giuseppeminnella)
 
@@ -74,13 +76,15 @@ yarn start
 
 #### Project Motivation:
 
-I'm doing this project to level up my "back of the frontend", testing (TDD, integration, E2E), and React skills.
+I'm doing this project to level up my "back of the frontend", testing (TDD,
+integration, E2E), and React skills.
 
 #### Project Status:
 
 Active. Work in progress.
 
 #### Project Roadmap:
+
 - [x] Node server
 - [x] MySQL database
 - [ ] Joint Client Server Config
@@ -92,4 +96,5 @@ Active. Work in progress.
 
 #### Known Issues:
 
-None that I'm aware of. If you find something feel free to create an issue or send me a pull request.
+None that I'm aware of. If you find something feel free to create an issue or
+send me a pull request.

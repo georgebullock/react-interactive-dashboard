@@ -10,7 +10,7 @@
 		"start:server": "yarn workspace react-interactive-dashboard-server start:dev",
 		"prettier": "prettier \"**/*.+(js|jsx|json|css|scss|ts|tsx|md|mdx|graphql)\"",
 		"format": "npm run prettier -- --write",
-		"validate": "concurrently --kill-others-on-fail \"yarn validate:client\" \"yarn validate:server\"",
+		"validate": "yarn validate:client && yarn validate:server",
 		"validate:client": "yarn workspace react-interactive-dashboard-client validate",
 		"validate:server": "yarn workspace react-interactive-dashboard-server validate"
 	},

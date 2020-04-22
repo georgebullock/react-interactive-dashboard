@@ -12,12 +12,8 @@
 		"types": "tsc --composite false",
 		"test": "jest",
 		"test:watch": "jest --watch",
-		"validate": "npm-run-all --parallel lint format types"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged && npm run validate"
-		}
+		"pre-commit": "lint-staged",
+		"validate": "npm-run-all --parallel pre-commit lint format types"
 	},
 	"lint-staged": {
 		".+(js|jsx|ts|tsx)": [

@@ -1,12 +1,17 @@
 {
-  "private": true,
-  "name": "react-interactive-dashboard",
-  "workspaces": [
-    "packages/*"
-  ],
-  "scripts": {
-    "start": "concurrently --kill-others-on-fail \"yarn server\"  \"yarn client\"",
-    "client": "yarn workspace react-interactive-dashboard-client start",
-    "server": "yarn workspace react-interactive-dashboard-server start:dev"
-  }
+	"private": true,
+	"name": "react-interactive-dashboard",
+	"workspaces": [
+		"packages/*"
+	],
+	"scripts": {
+		"start": "concurrently --kill-others-on-fail \"yarn server\"  \"yarn client\"",
+		"client": "yarn workspace react-interactive-dashboard-client start",
+		"server": "yarn workspace react-interactive-dashboard-server start:dev"
+	},
+	"devDependencies": {
+		"concurrently": "^5.1.0",
+		"husky": "^4.2.5",
+		"prettier": "^2.0.5"
+	}
 }

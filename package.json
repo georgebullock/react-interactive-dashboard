@@ -1,8 +1,27 @@
 {
 	"private": true,
 	"name": "react-interactive-dashboard",
-	"workspaces": ["src/*"],
+	"workspaces": [
+		"packages/*"
+	],
 	"scripts": {
-		
-	} 
+		"start": "concurrently --kill-others-on-fail \"yarn start:client\"  \"yarn start:server\"",
+		"start:client": "yarn workspace react-interactive-dashboard-client start",
+		"start:server": "yarn workspace react-interactive-dashboard-server start:dev",
+		"prettier": "prettier \"**/*.+(js|jsx|json|css|scss|ts|tsx|md|mdx|graphql)\"",
+		"format": "npm run prettier -- --write",
+		"validate": "yarn validate:client && yarn validate:server",
+		"validate:client": "yarn workspace react-interactive-dashboard-client validate",
+		"validate:server": "yarn workspace react-interactive-dashboard-server validate"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run validate"
+		}
+	},
+	"devDependencies": {
+		"concurrently": "^5.1.0",
+		"husky": "^4.2.5",
+		"prettier": "^2.0.5"
+	}
 }

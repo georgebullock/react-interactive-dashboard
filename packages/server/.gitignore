@@ -4,10 +4,10 @@
 # output folders
 dist
 tsconfig.tsbuildinfo
-yarn-error.log
 
 # environment variables
 .env
 
 # misc
 .vscode
+

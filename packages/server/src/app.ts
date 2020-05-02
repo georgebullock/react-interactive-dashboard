@@ -4,7 +4,7 @@ const helmet = require('helmet');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const app = express();
-const port = process.env.SERVER_PORT;
+const port = process.env.SERVER_PORT || 9000;
 
 app.use(logger('dev'));
 app.use(helmet());
@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
 	res.json({
 		message: `Serving React Interactive Dashboard Server on port ${port}`
 	});
+});
+
+app.get('/users', (req, res) => {
+	res.json({});
 });
 
 app.listen(port);

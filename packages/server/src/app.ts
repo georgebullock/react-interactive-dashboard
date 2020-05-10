@@ -1,3 +1,4 @@
+// @ts-nocheck
 require('dotenv').config();
 const sql = require('./models/db');
 const express = require('express');
@@ -6,19 +7,6 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const app = express();
 const port = process.env.SERVER_PORT || 9000;
-
-const getCircularReplacer = () => {
-	const seen = new WeakSet();
-	return (key, value) => {
-		if (typeof value === 'object' && value !== null) {
-			if (seen.has(value)) {
-				return;
-			}
-			seen.add(value);
-		}
-		return value;
-	};
-};
 
 app.use(logger('dev'));
 app.use(helmet());
@@ -34,17 +22,16 @@ app.get('/', (req, res) => {
 
 app.get('/users', (req, res) => {
 	const query = `SELECT * from users LIMIT 10`;
-	const results = sql.query(query, (err, results) => {
+
+	// @ts-ignore
+	const queryResults = sql.query(query, (err, results) => {
 		if (err) throw err;
 
-		results = JSON.stringify(results, getCircularReplacer());
-		console.log(results);
+		results = JSON.stringify(results);
 
-		return results;
-	});
-
-	res.json({
-		message: results
+		return res.json({
+			results
+		});
 	});
 });
 

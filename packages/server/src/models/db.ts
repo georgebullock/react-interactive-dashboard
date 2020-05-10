@@ -1,18 +1,19 @@
-require('dotenv').config();
+require('dotenv').config({ path: './../../.env' });
 const mysql = require('mysql');
 
-const connection = mysql.createConnection({
+const pool = mysql.createPool({
+	connectionLimit: 10,
 	host: process.env.DB_HOST,
 	user: process.env.DB_USER,
-	password: process.env.DB_PASSWORD
+	password: process.env.DB_PASSWORD,
+	database: process.env.DB_NAME
 });
 
-connection.connect();
-
-connection.query('SELECT 1 + 1 AS solution', (err, rows, fields) => {
-	if (err) throw err;
-
-	console.log('The solution is: ', rows[0].solution);
+pool.query('SELECT 1 + 1 AS solution', function(error, results) {
+	if (error) throw error;
+	console.log(
+		`Solution is ${results[0].solution} . Your database connection was successful`
+	);
 });
 
-connection.end();
+module.exports = pool;

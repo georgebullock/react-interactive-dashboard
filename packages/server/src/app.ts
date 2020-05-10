@@ -1,4 +1,3 @@
-// @ts-nocheck
 require('dotenv').config();
 const sql = require('./models/db');
 const express = require('express');
@@ -23,7 +22,6 @@ app.get('/', (req, res) => {
 app.get('/users', (req, res) => {
 	const query = `SELECT * from users LIMIT 10`;
 
-	// @ts-ignore
 	const queryResults = sql.query(query, (err, results) => {
 		if (err) throw err;
 

@@ -5,7 +5,8 @@ module.exports = {
 	extends: ['eslint:recommended', 'plugin:prettier/recommended'],
 	rules: {
 		'prettier/prettier': 'error',
-		'no-console': 'off'
+		'no-console': 'off',
+		'no-unused-vars': 'off'
 	},
 	settings: {},
 	env: {

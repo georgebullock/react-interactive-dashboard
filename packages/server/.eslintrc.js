@@ -20,14 +20,19 @@ module.exports = {
 		{
 			files: '**/*.+(ts|tsx)',
 			parser: '@typescript-eslint/parser',
+			parserOptions: {
+				project: './tsconfig.json'
+			},
 			rules: {
 				'@typescript-eslint/explicit-function-return-type': 'error'
 			},
-			plugins: ['@typescript-eslint/eslint-plugin'],
+			plugins: ['@typescript-eslint'],
 			extends: [
+				'eslint:recommended',
 				'plugin:@typescript-eslint/eslint-recommended',
 				'plugin:@typescript-eslint/recommended',
-				'eslint-config-prettier/@typescript-eslint'
+				'plugin:@typescript-eslint/recommended-requiring-type-checking',
+				'plugin:prettier/recommended'
 			]
 		}
 	]

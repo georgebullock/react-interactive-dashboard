@@ -36,4 +36,8 @@ User.create = function(newUser, result): void {
 	);
 };
 
+User.getAllUsers = function(): void {
+	const query = `SELECT * FROM users`;
+};
+
 export default User;

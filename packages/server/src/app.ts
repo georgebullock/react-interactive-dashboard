@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
 	res.json({
-		message: `Serving React Interactive Dashboard Server "/" on port ${port}`
+		message: `Serving React Interactive Dashboard Server on port ${port}`
 	});
 });
 

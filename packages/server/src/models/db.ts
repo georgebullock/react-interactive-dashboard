@@ -1,5 +1,5 @@
 require('dotenv').config({ path: './../../.env' });
-const mysql = require('mysql');
+import mysql from 'mysql';
 
 const pool = mysql.createPool({
 	connectionLimit: 10,
@@ -16,4 +16,4 @@ pool.query('SELECT 1 + 1 AS solution', function(error, results) {
 	);
 });
 
-module.exports = pool;
+export default pool;

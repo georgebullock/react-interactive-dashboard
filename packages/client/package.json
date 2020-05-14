@@ -8,7 +8,7 @@
 		"build": "webpack --mode production",
 		"prettier": "prettier \"**/*.+(js|jsx|json|css|scss|ts|tsx|md|mdx|graphql)\"",
 		"format": "npm run prettier -- --write",
-		"lint": "eslint . --ext .js, .jsx, .ts, .tsx --no-error-on-unmatched-pattern",
+		"lint": "eslint . --ext .ts, .tsx --no-error-on-unmatched-pattern",
 		"types": "tsc --composite false",
 		"test": "jest",
 		"test:watch": "jest --watch",

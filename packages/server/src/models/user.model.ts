@@ -1,14 +1,9 @@
 require('dotenv').config({ path: './../../.env' });
 import sql from './db';
-
-interface User {
-	username: string;
-	password: string;
-	email: string;
-}
+import { InterfaceUser } from '../Interfaces/InterfaceUser';
 
 const User = function initUser(
-	this: User,
+	this: InterfaceUser,
 	username: string,
 	password: string,
 	email: string
@@ -25,7 +20,7 @@ User.create = function(newUser, result): void {
 		[newUser.username, newUser.email, newUser.password],
 		(err, res) => {
 			if (err) {
-				console.error(err);
+				console.error(`Error: ${err}`);
 				result(err, null);
 				return;
 			}
@@ -36,8 +31,17 @@ User.create = function(newUser, result): void {
 	);
 };
 
-User.getAllUsers = function(): void {
-	const query = `SELECT * FROM users`;
+User.getAllUsers = function(result): void {
+	sql.query(`SELECT * from users`, (err, res) => {
+		if (err) {
+			console.error(`Error: ${err}`);
+			result(err, null);
+			return;
+		}
+
+		console.log(`All users: ${res}`);
+		result(null, res);
+	});
 };
 
 export default User;

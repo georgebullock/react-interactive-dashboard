@@ -24,7 +24,8 @@ module.exports = {
 		'no-console': 'off',
 		'prettier/prettier': 'error',
 		'react/react-in-jsx-scope': 'off',
-		'@typescript-eslint/explicit-function-return-type': 'error'
+		'@typescript-eslint/explicit-function-return-type': 'error',
+		'space-before-function-paren': 'off'
 	},
 	settings: {
 		react: {

@@ -13,7 +13,7 @@ const User = function initUser(
 	this.password = password;
 };
 
-User.create = function(newUser, result): void {
+User.create = (newUser, result): void => {
 	const query = `INSERT into users VALUES username = ?, email = ?, password = ?)`;
 	sql.query(
 		query,
@@ -31,7 +31,7 @@ User.create = function(newUser, result): void {
 	);
 };
 
-User.getAllUsers = function(result): void {
+User.getAllUsers = (result): void => {
 	sql.query(`SELECT * from users`, (err, res) => {
 		if (err) {
 			console.error(`Error: ${err}`);

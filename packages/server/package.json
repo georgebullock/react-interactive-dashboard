@@ -5,6 +5,7 @@
 	"scripts": {
 		"start:dev": "nodemon",
 		"start:prod": "npm run build && node dist/app.js",
+		"start:debug": "node --inspect --require ts-node/register ./src/app.ts",
 		"clean": "rimraf dist",
 		"build": "npm run clean && tsc",
 		"prettier": "prettier \"**/*.+(js|jsx|json|css|scss|ts|tsx|md|mdx|graphql)\"",

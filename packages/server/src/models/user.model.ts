@@ -25,21 +25,21 @@ User.create = (newUser, result): void => {
 				return;
 			}
 
-			console.log(`New user ${{ id: res.user_id, ...newUser }} created'`);
+			console.log(`Model: Create new user: ${{ id: res.user_id, ...newUser }}`);
 			result(null, { id: res.user_id, ...newUser });
 		}
 	);
 };
 
 User.getAllUsers = (result): void => {
-	sql.query(`SELECT * from users`, (err, res) => {
+	sql.query(`SELECT * from users LIMIT 5`, (err, res) => {
 		if (err) {
 			console.error(`Error: ${err}`);
 			result(err, null);
 			return;
 		}
 
-		console.log(`All users: ${res}`);
+		console.log(`Model: Get all users: ${res}`);
 		result(null, res);
 	});
 };

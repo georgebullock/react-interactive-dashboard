@@ -5,9 +5,7 @@ const UserService = function(): void {
 	console.log('Create new User Service');
 };
 
-// TODO: If User.getAllUsers returns a promise then we can await a response
-// Add error handling
-UserService.getAllUsers = async (): Promise<string | void> => {
+UserService.getAllUsers = async <T>(): Promise<T> => {
 	return await User.getAllUsers((err, res) => {
 		if (err) {
 			console.error('Error: ', err);

@@ -32,19 +32,19 @@ User.create = (newUser: InterfaceUser, result): void => {
 	);
 };
 
-// TODO: Should "promisify" database calls? What's the "right" way to promisify them? Add error handling.
-User.getAllUsers = (result): void => {
-	sql.query(`SELECT * from users LIMIT 5`, (err, res) => {
-		if (err) {
-			console.error(`Error: ${err}`);
-			result(err, null);
-			return;
-		}
+User.getAllUsers = <T>(result): Promise<T> => {
+	return new Promise<T>((resolve, reject) => {
+		sql.query(`SELECT * from users LIMIT 5`, (err, res) => {
+			if (err) {
+				console.error(`Error: ${err}`);
+				reject(result(err, null));
+			}
 
-		console.log(`Model: Get all users: ${res}`);
-		console.log('Model Response is of type: ', typeof res);
+			console.log(`Model: Get all users: ${res}`);
+			console.log('Model Response is of type: ', typeof res);
 
-		result(null, res);
+			resolve(result(null, res));
+		});
 	});
 };
 

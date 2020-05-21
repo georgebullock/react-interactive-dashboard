@@ -1,6 +1,7 @@
 require('dotenv').config({ path: './../../.env' });
 import sql from './db';
 import { InterfaceUser } from '../Interfaces/InterfaceUser';
+// import { util } from 'util';
 
 const User = function initUser(
 	this: InterfaceUser,
@@ -13,7 +14,7 @@ const User = function initUser(
 	this.password = password;
 };
 
-User.create = (newUser, result): void => {
+User.create = (newUser: InterfaceUser, result): void => {
 	const query = `INSERT into users VALUES username = ?, email = ?, password = ?)`;
 	sql.query(
 		query,
@@ -31,6 +32,7 @@ User.create = (newUser, result): void => {
 	);
 };
 
+// TODO: Should "promisify" database calls? What's the "right" way to promisify them? Add error handling.
 User.getAllUsers = (result): void => {
 	sql.query(`SELECT * from users LIMIT 5`, (err, res) => {
 		if (err) {
@@ -40,6 +42,8 @@ User.getAllUsers = (result): void => {
 		}
 
 		console.log(`Model: Get all users: ${res}`);
+		console.log('Model Response is of type: ', typeof res);
+
 		result(null, res);
 	});
 };

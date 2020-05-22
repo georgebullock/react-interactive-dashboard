@@ -14,22 +14,26 @@ const User = function initUser(
 	this.password = password;
 };
 
-User.create = (newUser: InterfaceUser, result): void => {
-	const query = `INSERT INTO users VALUES username = ?, email = ?, password = ?)`;
-	sql.query(
-		query,
-		[newUser.username, newUser.email, newUser.password],
-		(err, res) => {
-			if (err) {
-				console.error(`Error: ${err}`);
-				result(err, null);
-				return;
-			}
+User.create = <T>(newUser: InterfaceUser, result): Promise<T> => {
+	return new Promise<T>((resolve, reject) => {
+		const query = `INSERT INTO users VALUES username = ?, email = ?, password = ?)`;
+		sql.query(
+			query,
+			[newUser.username, newUser.email, newUser.password],
+			(err, res) => {
+				if (err) {
+					console.error(`Error: ${err}`);
+					reject(result(err, null));
+					return;
+				}
 
-			console.log(`Model: Create new user: ${{ id: res.user_id, ...newUser }}`);
-			result(null, { id: res.user_id, ...newUser });
-		}
-	);
+				console.log(
+					`Model: Create new user: ${{ id: res.user_id, ...newUser }}`
+				);
+				resolve(result(null, { id: res.user_id, ...newUser }));
+			}
+		);
+	});
 };
 
 User.getAllUsers = <T>(result): Promise<T> => {
@@ -46,7 +50,7 @@ User.getAllUsers = <T>(result): Promise<T> => {
 	});
 };
 
-User.getUserById = <T>(userId, result): Promise<T> => {
+User.getUserById = <T>(userId: number, result): Promise<T> => {
 	return new Promise<T>((resolve, reject) => {
 		sql.query(`SELECT * FROM users WHERE user_id = ?`, [userId], (err, res) => {
 			if (err) {

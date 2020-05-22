@@ -1,8 +1,21 @@
 import User from './../models/user.model';
+import { InterfaceUser } from '../Interfaces/InterfaceUser';
 
 // Services are a collection of methods that apply business logic to data
 const UserService = function(): void {
 	console.log('Create new User Service');
+};
+
+UserService.create = async <T>(newUser: InterfaceUser): Promise<T> => {
+	return await User.create(newUser, (err, res) => {
+		if (err) {
+			console.error('Error: ', err);
+			return;
+		}
+
+		console.log(`Service to Model Call: Get all users: ${JSON.stringify(res)}`);
+		return JSON.stringify(res);
+	});
 };
 
 UserService.getAllUsers = async <T>(): Promise<T> => {

@@ -4,7 +4,6 @@ import helmet from 'helmet';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import routes from './api/index';
-// import { getAllUsersService } from './services/user.service';
 
 const app = express();
 const port = process.env.SERVER_PORT || 9000;

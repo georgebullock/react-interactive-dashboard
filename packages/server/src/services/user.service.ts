@@ -17,4 +17,17 @@ UserService.getAllUsers = async <T>(): Promise<T> => {
 	});
 };
 
+UserService.getUserById = async <T>(id: number): Promise<T> => {
+	return await User.getUserById(id, (err, res) => {
+		if (err) {
+			console.log(`Error ${err}`);
+		}
+
+		console.log(
+			`Service to Model Call: Get user by id: ${JSON.stringify(res)}`
+		);
+		return JSON.stringify(res);
+	});
+};
+
 export default UserService;

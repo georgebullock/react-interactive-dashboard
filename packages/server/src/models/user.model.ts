@@ -15,7 +15,7 @@ const User = function initUser(
 };
 
 User.create = (newUser: InterfaceUser, result): void => {
-	const query = `INSERT into users VALUES username = ?, email = ?, password = ?)`;
+	const query = `INSERT INTO users VALUES username = ?, email = ?, password = ?)`;
 	sql.query(
 		query,
 		[newUser.username, newUser.email, newUser.password],
@@ -34,15 +34,27 @@ User.create = (newUser: InterfaceUser, result): void => {
 
 User.getAllUsers = <T>(result): Promise<T> => {
 	return new Promise<T>((resolve, reject) => {
-		sql.query(`SELECT * from users LIMIT 5`, (err, res) => {
+		sql.query(`SELECT * FROM users LIMIT 5`, (err, res) => {
 			if (err) {
 				console.error(`Error: ${err}`);
 				reject(result(err, null));
 			}
 
 			console.log(`Model: Get all users: ${res}`);
-			console.log('Model Response is of type: ', typeof res);
+			resolve(result(null, res));
+		});
+	});
+};
 
+User.getUserById = <T>(userId, result): Promise<T> => {
+	return new Promise<T>((resolve, reject) => {
+		sql.query(`SELECT * FROM users WHERE user_id = ?`, [userId], (err, res) => {
+			if (err) {
+				console.error(`Error: ${err}`);
+				reject(result(err, null));
+			}
+
+			console.log(`Model: Get user by id: ${res}`);
 			resolve(result(null, res));
 		});
 	});

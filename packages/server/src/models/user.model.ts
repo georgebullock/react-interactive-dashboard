@@ -16,9 +16,8 @@ const User = function initUser(
 
 User.create = <T>(newUser: InterfaceUser, result): Promise<T> => {
 	return new Promise<T>((resolve, reject) => {
-		const query = `INSERT INTO users VALUES username = ?, email = ?, password = ?)`;
 		sql.query(
-			query,
+			'INSERT INTO users (username, email, password) VALUES (username = ?, email = ?, password = ?)',
 			[newUser.username, newUser.email, newUser.password],
 			(err, res) => {
 				if (err) {

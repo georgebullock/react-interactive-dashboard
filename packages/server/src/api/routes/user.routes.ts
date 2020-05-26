@@ -7,11 +7,12 @@ const router = Router();
 router.post(
 	'/create',
 	async (req: Request, res: Response, next: NextFunction) => {
-		const { username, email, password } = req.params;
+		const { username, email, password } = req.body;
 		try {
-			// const data = await UserService.create();
-			console.log({ username, email, password });
+			const data = await UserService.create({ username, email, password });
+			res.send({ data });
 		} catch (error) {
+			//TODO: Clarify if this is necessary. Suspect yes b/c context is async
 			return next(error);
 		}
 	}

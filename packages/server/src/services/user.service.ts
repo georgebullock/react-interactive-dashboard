@@ -13,7 +13,7 @@ UserService.create = async <T>(newUser: InterfaceUser): Promise<T> => {
 			return;
 		}
 
-		console.log(`Service to Model Call: Get all users: ${JSON.stringify(res)}`);
+		console.log(`Service to Model Call: Create user: ${JSON.stringify(res)}`);
 		return JSON.stringify(res);
 	});
 };

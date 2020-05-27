@@ -64,6 +64,7 @@ UserService.updateUserById = async <T>(
 		}
 
 		console.log(`Service to Model Call: Update user ID: ${userId}`);
+		return JSON.stringify(res);
 	});
 };
 

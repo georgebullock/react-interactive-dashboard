@@ -57,21 +57,61 @@ router.delete(
 	}
 );
 
-router.put('/:id', async (req: Request, res: Response, next: NextFunction) => {
-	try {
-		const { username, email, password } = req.body;
-		const data = await UserService.updateUserById(parseInt(req.params.id), {
-			username,
-			email,
-			password
-		});
-		res.json({ data });
-	} catch (error) {
-		console.error(error);
+router.put(
+	'/:id/username',
+	async (req: Request, res: Response, next: NextFunction) => {
+		try {
+			const { username } = req.body;
+			const data = await UserService.updateUsername(
+				parseInt(req.params.id),
+				username
+			);
+			res.json({ data });
+		} catch (error) {
+			console.error(error);
 
-		// TODO: Clarify if this is necessary. Suspect yes b/c context is async
-		return next(error);
+			// TODO: Clarify if this is necessary. Suspect yes b/c context is async
+			return next(error);
+		}
 	}
-});
+);
+
+router.put(
+	'/:id/email',
+	async (req: Request, res: Response, next: NextFunction) => {
+		try {
+			const { email } = req.body;
+			const data = await UserService.updateEmail(
+				parseInt(req.params.id),
+				email
+			);
+			res.json({ data });
+		} catch (error) {
+			console.error(error);
+
+			// TODO: Clarify if this is necessary. Suspect yes b/c context is async
+			return next(error);
+		}
+	}
+);
+
+router.put(
+	'/:id/password',
+	async (req: Request, res: Response, next: NextFunction) => {
+		try {
+			const { password } = req.body;
+			const data = await UserService.updatePassword(
+				parseInt(req.params.id),
+				password
+			);
+			res.json({ data });
+		} catch (error) {
+			console.error(error);
+
+			// TODO: Clarify if this is necessary. Suspect yes b/c context is async
+			return next(error);
+		}
+	}
+);
 
 export default router;

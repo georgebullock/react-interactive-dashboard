@@ -54,11 +54,39 @@ UserService.deleteUserById = async <T>(userId: number): Promise<T> => {
 	});
 };
 
-UserService.updateUserById = async <T>(
+UserService.updateUsername = async <T>(
 	userId: number,
-	userData: InterfaceUser
+	username: string
 ): Promise<T> => {
-	return await User.updateUserById(userId, userData, (err, res) => {
+	return await User.updateUsername(userId, username, (err, res) => {
+		if (err) {
+			console.error(err);
+		}
+
+		console.log(`Service to Model Call: Update user ID: ${userId}`);
+		return JSON.stringify(res);
+	});
+};
+
+UserService.updateEmail = async <T>(
+	userId: number,
+	email: string
+): Promise<T> => {
+	return await User.updateEmail(userId, email, (err, res) => {
+		if (err) {
+			console.error(err);
+		}
+
+		console.log(`Service to Model Call: Update user ID: ${userId}`);
+		return JSON.stringify(res);
+	});
+};
+
+UserService.updatePassword = async <T>(
+	userId: number,
+	password: string
+): Promise<T> => {
+	return await User.updatePassword(userId, password, (err, res) => {
 		if (err) {
 			console.error(err);
 		}

@@ -79,11 +79,55 @@ User.deleteUserById = <T>(userId: number, result): Promise<T> => {
 	});
 };
 
-User.updateUserById = <T>(userId, userData, result): Promise<T> => {
+User.updateUsername = <T>(
+	userId: number,
+	username: string,
+	result
+): Promise<T> => {
 	return new Promise((resolve, reject) => {
 		sql.query(
-			`UPDATE users SET (username = ?, email = ?, password = ? WHERE user_id = ?`,
-			[userData.username, userData.email, userData.password, userId],
+			`UPDATE users SET username = ? WHERE user_id = ?`,
+			[username, userId],
+			(err, res) => {
+				if (err) {
+					console.log(err);
+					reject(result(err, null));
+				}
+
+				console.log(`Update user ID: ${userId}`);
+				resolve(result(null, res));
+			}
+		);
+	});
+};
+
+User.updateEmail = <T>(userId: number, email: string, result): Promise<T> => {
+	return new Promise((resolve, reject) => {
+		sql.query(
+			`UPDATE users SET email = ? WHERE user_id = ?`,
+			[email, userId],
+			(err, res) => {
+				if (err) {
+					console.log(err);
+					reject(result(err, null));
+				}
+
+				console.log(`Update user ID: ${userId}`);
+				resolve(result(null, res));
+			}
+		);
+	});
+};
+
+User.updatePassword = <T>(
+	userId: number,
+	password: string,
+	result
+): Promise<T> => {
+	return new Promise((resolve, reject) => {
+		sql.query(
+			`UPDATE users SET password = ? WHERE user_id = ?`,
+			[password, userId],
 			(err, res) => {
 				if (err) {
 					console.log(err);

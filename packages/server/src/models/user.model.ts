@@ -1,7 +1,6 @@
 require('dotenv').config({ path: './../../.env' });
 import sql from './db';
 import { InterfaceUser } from '../Interfaces/InterfaceUser';
-// import { util } from 'util';
 
 const User = function initUser(
 	this: InterfaceUser,

@@ -3,3 +3,7 @@ export type TUser = {
 	password: string;
 	email: string;
 };
+
+export type TUserId = {
+	id: number;
+};

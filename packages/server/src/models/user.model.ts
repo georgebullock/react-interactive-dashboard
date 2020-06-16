@@ -1,9 +1,9 @@
 require('dotenv').config({ path: './../../.env' });
 import sql from './db';
-import { InterfaceUser } from '../Interfaces/InterfaceUser';
+import { TUser } from '../types/TypeUser';
 
 const User = function initUser(
-	this: InterfaceUser,
+	this: TUser,
 	username: string,
 	password: string,
 	email: string
@@ -13,7 +13,7 @@ const User = function initUser(
 	this.password = password;
 };
 
-User.create = <T>(userData: InterfaceUser, result): Promise<T> => {
+User.create = <T>(userData: TUser, result): Promise<T> => {
 	return new Promise<T>((resolve, reject) => {
 		sql.query(
 			'INSERT INTO users (username, email, password) VALUES (?,?,?)',

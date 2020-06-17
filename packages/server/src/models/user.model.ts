@@ -1,6 +1,6 @@
 require('dotenv').config({ path: './../../.env' });
-import sql from './db';
-import { TUser } from '../types/TypesUser';
+import { User as TUser } from '../types/user';
+import { sqlQuery } from './../utils/sqlQuery';
 
 const User = function initUser(
 	this: TUser,
@@ -13,133 +13,44 @@ const User = function initUser(
 	this.password = password;
 };
 
-function sqlQuery(
-	query: string,
-	values: string | Array<string>
-): Promise<unknown> {
-	return new Promise((resolve, reject) => {
-		sql.query(query, values, (err, res) => {
-			if (err) {
-				console.error(err);
-				reject(err);
-			}
-
-			resolve(res);
-		});
-	});
-}
-
-User.create = (userData: TUser): Promise<unknown> => {
+User.create = <T>(userData: TUser): Promise<T> => {
 	return sqlQuery(
 		'INSERT INTO users (username, email, password) VALUES (?,?,?)',
 		[userData.username, userData.email, userData.password]
 	);
 };
 
-// User.getAllUsers = <T>(result): Promise<T> => {
-// 	return new Promise<T>((resolve, reject) => {
-// 		sql.query(`SELECT * FROM users LIMIT 5`, (err, res) => {
-// 			if (err) {
-// 				console.error(err);
-// 				reject(result(err, null));
-// 			}
+User.getAllUsers = <T>(): Promise<T> => {
+	return sqlQuery(`SELECT * FROM users LIMIT 5`);
+};
 
-// 			console.log(`Model: Get all users: ${res}`);
-// 			resolve(result(null, res));
-// 		});
-// 	});
-// };
+User.getUserById = <T>(userId: number): Promise<T> => {
+	return sqlQuery(`SELECT * FROM users WHERE user_id = ?`, [userId]);
+};
 
-// User.getUserById = <T>(userId: number, result): Promise<T> => {
-// 	return new Promise<T>((resolve, reject) => {
-// 		sql.query(`SELECT * FROM users WHERE user_id = ?`, [userId], (err, res) => {
-// 			if (err) {
-// 				console.error(err);
-// 				reject(result(err, null));
-// 			}
+User.deleteUserById = <T>(userId: number): Promise<T> => {
+	return sqlQuery(`DELETE FROM users WHERE user_id = ?`, [userId]);
+};
 
-// 			console.log(`Model: Got user ID: ${res}`);
-// 			resolve(result(null, res));
-// 		});
-// 	});
-// };
+User.updateUsername = <T>(userId: number, username: string): Promise<T> => {
+	return sqlQuery(`UPDATE users SET username = ? WHERE user_id = ?`, [
+		username,
+		userId
+	]);
+};
 
-// User.deleteUserById = <T>(userId: number, result): Promise<T> => {
-// 	return new Promise((resolve, reject) => {
-// 		sql.query(`DELETE FROM users WHERE user_id = ?`, [userId], (err, res) => {
-// 			if (err) {
-// 				console.error(err);
-// 				reject(result(err, null));
-// 			}
+User.updateEmail = <T>(userId: number, email: string): Promise<T> => {
+	return sqlQuery(`UPDATE users SET email = ? WHERE user_id = ?`, [
+		email,
+		userId
+	]);
+};
 
-// 			console.log(
-// 				`Removed user ID: ${userId}. Affected row ${res.affectedRows}`
-// 			);
-// 			resolve(result(null, res));
-// 		});
-// 	});
-// };
-
-// User.updateUsername = <T>(
-// 	userId: number,
-// 	username: string,
-// 	result
-// ): Promise<T> => {
-// 	return new Promise((resolve, reject) => {
-// 		sql.query(
-// 			`UPDATE users SET username = ? WHERE user_id = ?`,
-// 			[username, userId],
-// 			(err, res) => {
-// 				if (err) {
-// 					console.log(err);
-// 					reject(result(err, null));
-// 				}
-
-// 				console.log(`Update user ID: ${userId}`);
-// 				resolve(result(null, res));
-// 			}
-// 		);
-// 	});
-// };
-
-// User.updateEmail = <T>(userId: number, email: string, result): Promise<T> => {
-// 	return new Promise((resolve, reject) => {
-// 		sql.query(
-// 			`UPDATE users SET email = ? WHERE user_id = ?`,
-// 			[email, userId],
-// 			(err, res) => {
-// 				if (err) {
-// 					console.log(err);
-// 					reject(result(err, null));
-// 				}
-
-// 				console.log(`Update user ID: ${userId}`);
-// 				resolve(result(null, res));
-// 			}
-// 		);
-// 	});
-// };
-
-// User.updatePassword = <T>(
-// 	userId: number,
-// 	password: string,
-// 	result
-// ): Promise<T> => {
-// 	return new Promise((resolve, reject) => {
-// 		sql.query(
-// 			`UPDATE users SET password = ? WHERE user_id = ?`,
-// 			[password, userId],
-// 			(err, res) => {
-// 				if (err) {
-// 					console.log(err);
-// 					reject(result(err, null));
-// 				}
-
-// 				console.log(`Update user ID: ${userId}`);
-// 				resolve(result(null, res));
-// 			}
-// 		);
-// 	});
-// };
+User.updatePassword = <T>(userId: number, password: string): Promise<T> => {
+	return sqlQuery(`UPDATE users SET password = ? WHERE user_id = ?`, [
+		password,
+		userId
+	]);
+};
 
 export default User;

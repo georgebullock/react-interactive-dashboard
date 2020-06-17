@@ -1,91 +1,46 @@
 import User from './../models/user.model';
-import { TUser } from '../types/TypesUser';
+import { User as TUser } from '../types/user';
 
 // Services are a collection of methods that apply business logic to data
 const UserService = function(): void {
 	console.log('Create new User Service');
 };
 
-UserService.create = async (userData: TUser): Promise<unknown> => {
+UserService.create = async <T>(userData: TUser): Promise<T> => {
 	return await User.create(userData);
 };
 
-// UserService.getAllUsers = async <T>(): Promise<T> => {
-// 	return await User.getAllUsers((err, res) => {
-// 		if (err) {
-// 			console.error('Error: ', err);
-// 			return;
-// 		}
+UserService.getAllUsers = async <T>(): Promise<T> => {
+	return await User.getAllUsers();
+};
 
-// 		console.log(`Service to Model Call: Get all users: ${JSON.stringify(res)}`);
-// 		return JSON.stringify(res);
-// 	});
-// };
+UserService.getUserById = async <T>(id: number): Promise<T> => {
+	return await User.getUserById(id);
+};
 
-// UserService.getUserById = async <T>(id: number): Promise<T> => {
-// 	return await User.getUserById(id, (err, res) => {
-// 		if (err) {
-// 			console.log(`Error ${err}`);
-// 		}
+UserService.deleteUserById = async <T>(userId: number): Promise<T> => {
+	return await User.deleteUserById(userId);
+};
 
-// 		console.log(
-// 			`Service to Model Call: Get user by ID: ${JSON.stringify(res)}`
-// 		);
-// 		return JSON.stringify(res);
-// 	});
-// };
+UserService.updateUsername = async <T>(
+	userId: number,
+	username: string
+): Promise<T> => {
+	return await User.updateUsername(userId, username);
+};
 
-// UserService.deleteUserById = async <T>(userId: number): Promise<T> => {
-// 	return await User.deleteUserById(userId, (err, res) => {
-// 		if (err) {
-// 			console.error(err);
-// 		}
+UserService.updateEmail = async <T>(
+	userId: number,
+	email: string
+): Promise<T> => {
+	return await User.updateEmail(userId, email);
+};
 
-// 		console.log(`Service to Model Call: Remove user ID: ${userId}`);
-// 		return JSON.stringify(res);
-// 	});
-// };
-
-// UserService.updateUsername = async <T>(
-// 	userId: number,
-// 	username: string
-// ): Promise<T> => {
-// 	return await User.updateUsername(userId, username, (err, res) => {
-// 		if (err) {
-// 			console.error(err);
-// 		}
-
-// 		console.log(`Service to Model Call: Update user ID: ${userId}`);
-// 		return JSON.stringify(res);
-// 	});
-// };
-
-// UserService.updateEmail = async <T>(
-// 	userId: number,
-// 	email: string
-// ): Promise<T> => {
-// 	return await User.updateEmail(userId, email, (err, res) => {
-// 		if (err) {
-// 			console.error(err);
-// 		}
-
-// 		console.log(`Service to Model Call: Update user ID: ${userId}`);
-// 		return JSON.stringify(res);
-// 	});
-// };
-
-// UserService.updatePassword = async <T>(
-// 	userId: number,
-// 	password: string
-// ): Promise<T> => {
-// 	return await User.updatePassword(userId, password, (err, res) => {
-// 		if (err) {
-// 			console.error(err);
-// 		}
-
-// 		console.log(`Service to Model Call: Update user ID: ${userId}`);
-// 		return JSON.stringify(res);
-// 	});
-// };
+UserService.updatePassword = async <T>(
+	userId: number,
+	password: string
+): Promise<T> => {
+	return await User.updatePassword(userId, password);
+};
 
 export default UserService;

@@ -15,6 +15,7 @@ UserService.getAllUsers = async <T>(): Promise<T> => {
 };
 
 UserService.getUserById = async <T>(id: number): Promise<T> => {
+	// TODO: Add check for 0 length response (e.g. if user with ID x was deleted) and return 404
 	return await User.getUserById(id);
 };
 

@@ -7,7 +7,7 @@
 		"skipLibCheck": false,
 		"esModuleInterop": true,
 		"noImplicitThis": true,
-		"noImplicitAny": false,
+		"noImplicitAny": true,
 		"composite": true
 	}
 }

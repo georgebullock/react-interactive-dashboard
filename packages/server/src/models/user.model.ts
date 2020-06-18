@@ -2,7 +2,8 @@ require('dotenv').config({ path: './../../.env' });
 import { User as TUser } from '../types/user';
 import { sqlQuery } from './../utils/sqlQuery';
 
-const User = function initUser(
+// User Model is a collection of methods to handle CRUD for user concerns
+const User = function(
 	this: TUser,
 	username: string,
 	password: string,

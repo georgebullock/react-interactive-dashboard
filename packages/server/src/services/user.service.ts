@@ -1,7 +1,7 @@
 import User from './../models/user.model';
 import { User as TUser } from '../types/user';
 
-// Services are a collection of methods that apply business logic to data
+// User Service is a collection of methods to handle CRUD for user concerns
 const UserService = function(): void {
 	console.log('Create new User Service');
 };

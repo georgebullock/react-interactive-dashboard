@@ -11,6 +11,7 @@ export const sqlQuery = <T>(
 				reject(err);
 			}
 
+			console.log(`sqlQuery response was successful: ${res}`);
 			resolve(res);
 		});
 	});

@@ -4,3 +4,5 @@ export type User = {
 	password: string;
 	email: string;
 };
+
+// TODO: Determine if you need additional types (e.g. sqlQuery) and add them if necessary

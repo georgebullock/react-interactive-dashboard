@@ -2,6 +2,9 @@ require('dotenv').config({ path: './../../.env' });
 import { User as TUser } from '../types/user';
 import { sqlQuery } from './../utils/sqlQuery';
 
+// TODO: Learn how to type User Object expressions properly for their use case in routes
+// TODO: Learn how to make sqlQuery function calls with the correct types
+
 // User Model is a collection of methods to handle CRUD for user concerns
 const User = function(
 	this: TUser,

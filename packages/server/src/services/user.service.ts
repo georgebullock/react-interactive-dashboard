@@ -1,6 +1,9 @@
 import User from './../models/user.model';
 import { User as TUser } from '../types/user';
 
+// TODO: Learn how to type User Service expressions properly for their use case in routes
+// TODO: Learn how to make User object function calls with the correct types
+
 // User Service is a collection of methods to handle CRUD for user concerns
 const UserService = function(): void {
 	console.log('Create new User Service');

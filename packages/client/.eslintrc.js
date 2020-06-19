@@ -1,4 +1,5 @@
 module.exports = {
+	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaVersion: 2019,
 		sourceType: 'module',
@@ -6,6 +7,12 @@ module.exports = {
 			jsx: true
 		}
 	},
+	plugins: ['@typescript-eslint/eslint-plugin', 'jest-dom', 'prettier'],
+	extends: [
+		'plugin:@typescript-eslint/eslint-recommended',
+		'plugin:@typescript-eslint/recommended',
+		'eslint-config-prettier/@typescript-eslint'
+	],
 	extends: [
 		'eslint:recommended',
 		'plugin:react/recommended',
@@ -16,7 +23,9 @@ module.exports = {
 	rules: {
 		'no-console': 'off',
 		'prettier/prettier': 'error',
-		'react/react-in-jsx-scope': 'off'
+		'react/react-in-jsx-scope': 'off',
+		'@typescript-eslint/explicit-function-return-type': 'error',
+		'space-before-function-paren': 'off'
 	},
 	settings: {
 		react: {
@@ -28,20 +37,5 @@ module.exports = {
 		browser: true,
 		node: true,
 		jest: true
-	},
-	overrides: [
-		{
-			files: '**/*.+(ts|tsx)',
-			parser: '@typescript-eslint/parser',
-			rules: {
-				'@typescript-eslint/explicit-function-return-type': 'error'
-			},
-			plugins: ['@typescript-eslint/eslint-plugin'],
-			extends: [
-				'plugin:@typescript-eslint/eslint-recommended',
-				'plugin:@typescript-eslint/recommended',
-				'eslint-config-prettier/@typescript-eslint'
-			]
-		}
-	]
+	}
 };

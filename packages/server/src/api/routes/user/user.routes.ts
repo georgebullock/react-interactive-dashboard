@@ -3,8 +3,6 @@ import UserService from './../../../services/user.service';
 
 const router = Router();
 
-// TODO: Learn how to make UserService object function calls with the correct types
-
 router.post(
 	'/create',
 	async (req: Request, res: Response, next: NextFunction) => {

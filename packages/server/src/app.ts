@@ -20,6 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 // Eventually app.ts should only include routes like those below
 app.use('/', routes.index);
 app.use('/user', routes.user);
+app.use('/dashboard', routes.dashboard);
 
 app.listen(port);
 

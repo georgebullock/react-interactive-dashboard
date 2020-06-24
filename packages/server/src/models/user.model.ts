@@ -3,7 +3,6 @@ import { ChangeResponse, QueryResponse } from '../types/sqlQuery';
 import { User as TUser } from '../types/user';
 import { sqlQuery } from './../utils/sqlQuery';
 
-// User Model is a collection of methods to handle CRUD for user concerns
 const User = function(
 	this: TUser,
 	username: string,

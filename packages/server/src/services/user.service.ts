@@ -31,12 +31,12 @@ UserService.getUserById = async (
 	 check for 0 length response (e.g. if user with ID x was deleted) 
 	 and return a 404 with 
 	 */
-	if (dbResponse.data.length === 0) {
-		return {
-			status: 404,
-			message: `User ${id} was deleted`
-		};
-	}
+	// if (dbResponse.data.length === 0) {
+	// 	return {
+	// 		status: 404,
+	// 		message: `User ${id} was deleted`
+	// 	};
+	// }
 
 	return dbResponse;
 };

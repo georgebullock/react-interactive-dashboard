@@ -12,7 +12,7 @@ export const sqlQuery = <T>(
 				reject(err);
 			}
 
-			console.log(`sqlQuery response was successful: ${res}`);
+			console.log(`sqlQuery was successful. Query response: ${res}`);
 			resolve(res);
 		});
 	});

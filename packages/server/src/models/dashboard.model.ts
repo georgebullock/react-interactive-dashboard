@@ -6,6 +6,10 @@ import { Dashboard as IDashboard } from '../interfaces/Dashboard';
 const Dashboard: IDashboard = {
 	getAllCommentsCount: (): Promise<QueryResponse> => {
 		return sqlQuery<QueryResponse>(`select count(*) as count from comments`);
+	},
+
+	getAllUsersCount: (): Promise<QueryResponse> => {
+		return sqlQuery<QueryResponse>(`select count(*) as count from users`);
 	}
 };
 

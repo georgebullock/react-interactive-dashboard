@@ -7,7 +7,7 @@ const DashboardService = {
 
 		console.log(`Service => dbResponse: `, dbResponse);
 
-		// This works, but it's slow relative to a for loop
+		// This works, but it's slow relative to a for loop.
 		console.log(
 			`Service => dbResponse: `,
 			JSON.parse(JSON.stringify(dbResponse))
@@ -22,6 +22,12 @@ const DashboardService = {
 		// 	`Service => dbResponse.data[0].rowDataPacket['count(*)']: `,
 		// 	dbResponse
 		// );
+
+		return dbResponse;
+	},
+
+	getAllUsersCount: async (): Promise<QueryResponse | QueryError> => {
+		const dbResponse = await Dashboard.getAllUsersCount();
 
 		return dbResponse;
 	}

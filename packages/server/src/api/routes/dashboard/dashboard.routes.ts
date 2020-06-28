@@ -16,4 +16,17 @@ router.get(
 	}
 );
 
+router.get(
+	'/getAllUsersCount',
+	async (req: Request, res: Response, next: NextFunction) => {
+		console.log(`/getAllUsersCount's request object: ${req}`);
+
+		const data = await DashboardService.getAllUsersCount().catch(error =>
+			next(error)
+		);
+
+		res.status(200).json({ data });
+	}
+);
+
 export default router;

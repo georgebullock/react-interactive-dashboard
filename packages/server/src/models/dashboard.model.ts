@@ -5,11 +5,21 @@ import { Dashboard as IDashboard } from '../interfaces/Dashboard';
 // For now this module will only GET comment, user, and tag data for the dashboard page
 const Dashboard: IDashboard = {
 	getAllCommentsCount: (): Promise<QueryResponse> => {
-		return sqlQuery<QueryResponse>(`select count(*) as count from comments`);
+		const result = sqlQuery<QueryResponse>(
+			`select count(*) as count from comments`
+		);
+
+		console.log('model => getAllCommentsCount => result:', result);
+		return result;
 	},
 
 	getAllUsersCount: (): Promise<QueryResponse> => {
-		return sqlQuery<QueryResponse>(`select count(*) as count from users`);
+		const result = sqlQuery<QueryResponse>(
+			`select count(*) as count from users`
+		);
+
+		console.log('model => getAllUsersCount => result:', result);
+		return result;
 	}
 };
 

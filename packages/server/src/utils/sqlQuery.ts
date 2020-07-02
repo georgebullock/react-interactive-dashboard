@@ -6,13 +6,17 @@ export const sqlQuery = <T>(
 	values?: string | Array<string | number>
 ): Promise<T> => {
 	return new Promise((resolve, reject) => {
-		sql.query(query, values, (err, res) => {
+		sql.open().query(query, values, (err, res) => {
 			if (err) {
 				console.error(err);
 				reject(err);
 			}
 
-			console.log(`sqlQuery was successful. Query response: ${res}`);
+			console.log(
+				`sqlQuery was successful. Query response: ${JSON.stringify(res)}`
+			);
+
+			sql.close();
 			resolve(res);
 		});
 	});

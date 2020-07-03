@@ -1,10 +1,10 @@
 require('dotenv').config({ path: './../../.env' });
 import { ChangeResponse, QueryResponse } from '../types/sqlQuery';
-import { User as TUser } from '../types/user';
+import { User } from '../types/user';
 import { sqlQuery } from './../utils/sqlQuery';
 
-const User = function(
-	this: TUser,
+const UserModel = function(
+	this: User,
 	username: string,
 	password: string,
 	email: string
@@ -14,30 +14,30 @@ const User = function(
 	this.password = password;
 };
 
-User.create = (userData: TUser): Promise<ChangeResponse> => {
+UserModel.create = (userData: User): Promise<ChangeResponse> => {
 	return sqlQuery<ChangeResponse>(
 		'INSERT INTO users (username, email, password) VALUES (?,?,?)',
 		[userData.username, userData.email, userData.password]
 	);
 };
 
-User.getAllUsers = (): Promise<QueryResponse> => {
+UserModel.getAllUsers = (): Promise<QueryResponse> => {
 	return sqlQuery<QueryResponse>(`SELECT * FROM users LIMIT 5`);
 };
 
-User.getUserById = (userId: number): Promise<QueryResponse> => {
+UserModel.getUserById = (userId: number): Promise<QueryResponse> => {
 	return sqlQuery<QueryResponse>(`SELECT * FROM users WHERE user_id = ?`, [
 		userId
 	]);
 };
 
-User.deleteUserById = (userId: number): Promise<ChangeResponse> => {
+UserModel.deleteUserById = (userId: number): Promise<ChangeResponse> => {
 	return sqlQuery<ChangeResponse>(`DELETE FROM users WHERE user_id = ?`, [
 		userId
 	]);
 };
 
-User.updateUsername = (
+UserModel.updateUsername = (
 	userId: number,
 	username: string
 ): Promise<ChangeResponse> => {
@@ -47,14 +47,17 @@ User.updateUsername = (
 	);
 };
 
-User.updateEmail = (userId: number, email: string): Promise<ChangeResponse> => {
+UserModel.updateEmail = (
+	userId: number,
+	email: string
+): Promise<ChangeResponse> => {
 	return sqlQuery<ChangeResponse>(
 		`UPDATE users SET email = ? WHERE user_id = ?`,
 		[email, userId]
 	);
 };
 
-User.updatePassword = (
+UserModel.updatePassword = (
 	userId: number,
 	password: string
 ): Promise<ChangeResponse> => {
@@ -64,4 +67,4 @@ User.updatePassword = (
 	);
 };
 
-export default User;
+export default UserModel;

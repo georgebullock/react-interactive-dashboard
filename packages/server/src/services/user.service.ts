@@ -1,4 +1,4 @@
-import User from './../models/user.model';
+import UserModel from './../models/user.model';
 import { User as TUser } from '../types/user';
 import { QueryResponse, QueryError } from '../types/sqlQuery';
 
@@ -10,7 +10,7 @@ const UserService = function(): void {
 UserService.create = async (
 	userData: TUser
 ): Promise<{ id: number; message: string }> => {
-	const dbResponse = await User.create(userData);
+	const dbResponse = await UserModel.create(userData);
 	return {
 		id: dbResponse.data.insertId,
 		message: `User ${dbResponse.data.insertId} was successfully created`
@@ -18,13 +18,13 @@ UserService.create = async (
 };
 
 UserService.getAllUsers = async (): Promise<QueryResponse> => {
-	return await User.getAllUsers();
+	return await UserModel.getAllUsers();
 };
 
 UserService.getUserById = async (
 	id: number
 ): Promise<QueryResponse | QueryError> => {
-	const dbResponse = await User.getUserById(id);
+	const dbResponse = await UserModel.getUserById(id);
 
 	/*
 	 MySQL return an empty arry for deleted users. To handle this I 
@@ -44,7 +44,7 @@ UserService.getUserById = async (
 UserService.deleteUserById = async (
 	id: number
 ): Promise<{ id: number; message: string }> => {
-	const dbResponse = await User.deleteUserById(id);
+	const dbResponse = await UserModel.deleteUserById(id);
 
 	return {
 		id: dbResponse.data.insertId,
@@ -56,7 +56,7 @@ UserService.updateUsername = async (
 	id: number,
 	username: string
 ): Promise<{ id: number; message: string }> => {
-	const dbResponse = await User.updateUsername(id, username);
+	const dbResponse = await UserModel.updateUsername(id, username);
 
 	return {
 		id: dbResponse.data.insertId,
@@ -68,7 +68,7 @@ UserService.updateEmail = async (
 	id: number,
 	email: string
 ): Promise<{ id: number; message: string }> => {
-	const dbResponse = await User.updateEmail(id, email);
+	const dbResponse = await UserModel.updateEmail(id, email);
 
 	return {
 		id: dbResponse.data.insertId,
@@ -80,7 +80,7 @@ UserService.updatePassword = async (
 	id: number,
 	password: string
 ): Promise<{ id: number; message: string }> => {
-	const dbResponse = await User.updatePassword(id, password);
+	const dbResponse = await UserModel.updatePassword(id, password);
 
 	return {
 		id: dbResponse.data.insertId,

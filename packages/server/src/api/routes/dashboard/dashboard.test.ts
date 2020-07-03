@@ -1,19 +1,40 @@
+require('dotenv').config();
 import request from 'supertest';
-import app from './../../../app';
+import createServer from './../../../app';
+import DashboardService from './../../../services/dashboard.service';
+
+jest.mock('./../../../services/dashboard.service');
+
+// beforeEach => clear mocks?
 
 describe('Test dashboard endpoints', () => {
+	const app = createServer();
+
 	test.skip('Get total user count', async () => {
 		// Arrange
-		const response = await request(app).get('/getAllUsersCount');
+		const response = await request(app).get('/dashboard/getAllUsersCount');
+
 		// Assert
-		console.log(response);
 		expect(response.status).toBe(200);
 	});
 
-	test.skip('Get total comments count', () => {
+	test.skip('It should return 5000', async () => {
+		const serviceGetAllUsersCount = jest.spyOn(
+			DashboardService,
+			'getAllUsersCount'
+		);
+
+		serviceGetAllUsersCount.mockResolvedValue({ data: [{ count: 5000 }] });
+
+		const response = await request(app).get('/dashboard/getAllUsersCount');
+		expect(response.body.data[0].count).toBe(5000);
+	});
+
+	test.skip('Get total comments count', async () => {
 		// Arrange
-		// Act
+		const response = await request(app).get('/dashboard/getAllCommentsCount');
 		// Assert
+		expect(response.status).toBe(200);
 	});
 });
 

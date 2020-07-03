@@ -12,9 +12,8 @@ export const sqlQuery = <T>(
 				reject(err);
 			}
 
-			console.log(
-				`sqlQuery was successful. Query response: ${JSON.stringify(res)}`
-			);
+			console.log('3.) sqlQuery => result:', res);
+			console.dir(res);
 
 			sql.close();
 			resolve(res);

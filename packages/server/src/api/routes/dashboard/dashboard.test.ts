@@ -5,36 +5,47 @@ import DashboardService from './../../../services/dashboard.service';
 
 jest.mock('./../../../services/dashboard.service');
 
-// beforeEach => clear mocks?
+afterEach(() => {
+	jest.clearAllMocks();
+});
 
 describe('Test dashboard endpoints', () => {
 	const app = createServer();
 
 	test.skip('Get total user count', async () => {
 		// Arrange
-		const response = await request(app).get('/dashboard/getAllUsersCount');
-
-		// Assert
-		expect(response.status).toBe(200);
-	});
-
-	test.skip('It should return 5000', async () => {
 		const serviceGetAllUsersCount = jest.spyOn(
 			DashboardService,
 			'getAllUsersCount'
 		);
 
-		serviceGetAllUsersCount.mockResolvedValue({ data: [{ count: 5000 }] });
+		serviceGetAllUsersCount.mockResolvedValue({
+			data: [{ count: 5000 }]
+		});
 
+		// Act and Assert
 		const response = await request(app).get('/dashboard/getAllUsersCount');
-		expect(response.body.data[0].count).toBe(5000);
+
+		console.log('TEST RESPONSE: ', response);
+		expect(response.status).toBe(200);
+		expect(response.status).toBe({ data: [{ count: 5000 }] });
 	});
 
 	test.skip('Get total comments count', async () => {
 		// Arrange
-		const response = await request(app).get('/dashboard/getAllCommentsCount');
-		// Assert
-		expect(response.status).toBe(200);
+		const serviceGetAllCommentsCount = jest.spyOn(
+			DashboardService,
+			'getAllCommentsCount'
+		);
+
+		serviceGetAllCommentsCount.mockResolvedValue({
+			data: [{ count: 5000 }]
+		});
+
+		// Act and Assert
+		request(app)
+			.get('/dashboard/getAllCommentsCount')
+			.expect(200, { data: [{ count: 5000 }] });
 	});
 });
 

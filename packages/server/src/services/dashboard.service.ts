@@ -1,20 +1,20 @@
 import DashboardModel from './../models/dashboard.model';
-import { QueryResponse, QueryError } from './../types/sqlQuery';
+import { SqlResponse } from './../types/sqlQuery';
 
 const DashboardService = {
-	getAllCommentsCount: async (): Promise<QueryResponse | QueryError> => {
+	getAllCommentsCount: async (): Promise<SqlResponse> => {
 		const dbResponse = await DashboardModel.getAllCommentsCount();
 
-		console.log('4.) Dashboard.getAllCommentsCount response:');
+		console.log('4.) DashboardModel.getAllCommentsCount response:');
 		console.dir(dbResponse);
 
 		return dbResponse;
 	},
 
-	getAllUsersCount: async (): Promise<QueryResponse | QueryError> => {
+	getAllUsersCount: async (): Promise<SqlResponse> => {
 		const dbResponse = await DashboardModel.getAllUsersCount();
 
-		console.log('4.) Dashboard.getAllUsersCount response:', dbResponse);
+		console.log('4.) DashboardModel.getAllUsersCount response:', dbResponse);
 		console.dir(dbResponse);
 
 		return dbResponse;

@@ -1,35 +1,35 @@
 import UserModel from './../models/user.model';
-import { User as TUser } from '../types/user';
-import { QueryResponse, QueryError } from '../types/sqlQuery';
+import { User } from '../types/user';
+import { SqlResponse } from '../types/sqlQuery';
 
 // User Service is a collection of methods to handle CRUD for user concerns
 const UserService = function(): void {
 	console.log('Create new User Service');
 };
 
-UserService.create = async (
-	userData: TUser
-): Promise<{ id: number; message: string }> => {
+UserService.create = async (userData: User): Promise<SqlResponse> => {
 	const dbResponse = await UserModel.create(userData);
-	return {
-		id: dbResponse.data.insertId,
-		message: `User ${dbResponse.data.insertId} was successfully created`
-	};
+	console.log('dbResponse', dbResponse);
+
+	return dbResponse;
+
+	// return {
+	// 	id: dbResponse[0]insertId,
+	// 	message: `User ${dbResponse[0].insertId} was successfully created`
+	// };
 };
 
-UserService.getAllUsers = async (): Promise<QueryResponse> => {
+UserService.getAllUsers = async (): Promise<SqlResponse> => {
 	return await UserModel.getAllUsers();
 };
 
-UserService.getUserById = async (
-	id: number
-): Promise<QueryResponse | QueryError> => {
+UserService.getUserById = async (id: number): Promise<SqlResponse> => {
 	const dbResponse = await UserModel.getUserById(id);
 
 	/*
-	 MySQL return an empty arry for deleted users. To handle this I 
-	 check for 0 length response (e.g. if user with ID x was deleted) 
-	 and return a 404 with 
+	 MySQL return an empty arry for deleted users. To handle this I
+	 check for 0 length response (e.g. if user with ID x was deleted)
+	 and return a 404 with
 	 */
 	// if (dbResponse.data.length === 0) {
 	// 	return {
@@ -41,51 +41,48 @@ UserService.getUserById = async (
 	return dbResponse;
 };
 
-UserService.deleteUserById = async (
-	id: number
-): Promise<{ id: number; message: string }> => {
+UserService.deleteUserById = async (id: number): Promise<SqlResponse> => {
 	const dbResponse = await UserModel.deleteUserById(id);
 
-	return {
-		id: dbResponse.data.insertId,
-		message: `User ${id} was deleted`
-	};
+	return dbResponse;
+	// return {
+	// 	id: dbResponse.data.insertId,
+	// 	message: `User ${id} was deleted`
+	// };
 };
 
 UserService.updateUsername = async (
 	id: number,
 	username: string
-): Promise<{ id: number; message: string }> => {
+): Promise<SqlResponse> => {
 	const dbResponse = await UserModel.updateUsername(id, username);
 
-	return {
-		id: dbResponse.data.insertId,
-		message: `User ${id}'s username was updated`
-	};
+	return dbResponse;
 };
 
 UserService.updateEmail = async (
 	id: number,
 	email: string
-): Promise<{ id: number; message: string }> => {
+): Promise<SqlResponse> => {
 	const dbResponse = await UserModel.updateEmail(id, email);
 
-	return {
-		id: dbResponse.data.insertId,
-		message: `User ${id}'s email was updated`
-	};
+	return dbResponse;
 };
 
 UserService.updatePassword = async (
 	id: number,
 	password: string
-): Promise<{ id: number; message: string }> => {
+): Promise<SqlResponse> => {
 	const dbResponse = await UserModel.updatePassword(id, password);
 
-	return {
-		id: dbResponse.data.insertId,
-		message: `User ${id}'s password was updated`
-	};
+	console.log('dbResponse', dbResponse);
+
+	return dbResponse;
+
+	// return {
+	// 	id: dbResponse.data.insertId,
+	// 	message: `User ${id}'s password was updated`
+	// };
 };
 
 export default UserService;

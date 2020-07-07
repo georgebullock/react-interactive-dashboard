@@ -1,10 +1,14 @@
 require('dotenv').config({ path: './../../.env' });
 import sql from './../models/db';
+import { SqlResponse } from '../types/sqlQuery';
+import { isArray } from 'util';
+// import { QueryResponse, QueryError } from '../types/sqlQuery';
+// import { Query } from 'mysql';
 
-export const sqlQuery = <T>(
+export const sqlQuery = (
 	query: string,
 	values?: string | Array<string | number>
-): Promise<T> => {
+): Promise<SqlResponse> => {
 	return new Promise((resolve, reject) => {
 		sql.open().query(query, values, (err, res) => {
 			if (err) {
@@ -12,11 +16,24 @@ export const sqlQuery = <T>(
 				reject(err);
 			}
 
-			console.log('3.) sqlQuery => result:', res);
-			console.dir(res);
+			let data: SqlResponse;
+
+			if (isArray(res)) {
+				data = [];
+				for (const item of res) {
+					data.push({ ...item });
+				}
+
+				resolve(data);
+			}
+
+			data = { ...res };
 
 			sql.close();
-			resolve(res);
+			console.log('3.) sqlQuery => result:');
+			console.dir(res);
+
+			resolve(data);
 		});
 	});
 };

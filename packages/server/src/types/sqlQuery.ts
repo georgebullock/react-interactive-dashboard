@@ -1,5 +1,5 @@
-export type ChangeResponse = {
-	data: {
+export type SqlManipulationResponse = [
+	{
 		fieldCount: number;
 		affectedRow: number;
 		insertId: number;
@@ -7,14 +7,14 @@ export type ChangeResponse = {
 		warningCount: number;
 		protocol41: boolean;
 		changedRows: number;
-	};
-};
+	}
+];
 
-export type QueryResponse = {
-	data: object[];
-};
+export type SqlQueryResponse = object[];
 
-export type QueryError = {
-	status: number;
-	message: string;
-};
+export type SqlResponse = SqlQueryResponse | SqlManipulationResponse;
+
+// export type SqlErrorResponse = {
+// 	status: number;
+// 	message: string;
+// };

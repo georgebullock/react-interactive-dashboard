@@ -1,6 +1,6 @@
-import { QueryResponse } from '../types/sqlQuery';
+import { SqlResponse } from '../types/sqlQuery';
 
 export interface Dashboard {
-	getAllCommentsCount(): Promise<QueryResponse>;
-	getAllUsersCount(): Promise<QueryResponse>;
+	getAllCommentsCount(): Promise<SqlResponse>;
+	getAllUsersCount(): Promise<SqlResponse>;
 }

@@ -4,6 +4,7 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import routes from './api/index';
 import cors from 'cors';
+// import { HttpErrorHandler } from './middleware/error.middleware';
 
 const createServer = (): Application => {
 	const app = express();
@@ -20,6 +21,7 @@ const createServer = (): Application => {
 	app.use('/', routes.index);
 	app.use('/user', routes.user);
 	app.use('/dashboard', routes.dashboard);
+	// app.use(HttpErrorHandler);
 
 	return app;
 };

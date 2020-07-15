@@ -1,5 +1,5 @@
 import DashboardModel from './../models/dashboard.model';
-import { SqlResponse } from './../types/sqlQuery';
+import { SqlResponse } from '../types/sql-query';
 
 const DashboardService = {
 	getAllCommentsCount: async (): Promise<SqlResponse> => {
@@ -16,6 +16,12 @@ const DashboardService = {
 
 		console.log('4.) DashboardModel.getAllUsersCount response:', dbResponse);
 		console.dir(dbResponse);
+
+		return dbResponse;
+	},
+
+	getMostActiveUsers: async (): Promise<SqlResponse> => {
+		const dbResponse = await DashboardModel.getMostActiveUsers();
 
 		return dbResponse;
 	}

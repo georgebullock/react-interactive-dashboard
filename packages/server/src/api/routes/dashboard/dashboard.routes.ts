@@ -13,9 +13,9 @@ router.get(
 			next(error)
 		);
 
-		// console.log('5.) DashboardService.getAllCommentsCount response:');
-		// console.log('5.)', res);
-		// console.log('5.)', data);
+		console.log('5.) DashboardService.getAllCommentsCount response:');
+		console.log('5.)', res);
+		console.log('5.)', data);
 
 		res.status(200).json({ data });
 	}
@@ -31,9 +31,9 @@ router.get(
 			next(error)
 		);
 
-		// console.log('5.) DashboardService.getAllCommentsCount response:');
-		// console.log('5.)', res);
-		// console.log('5.)', data);
+		console.log('5.) DashboardService.getAllCommentsCount response:');
+		console.log('5.)', res);
+		console.log('5.)', data);
 
 		res.status(200).json({ data });
 	}

@@ -1,5 +1,5 @@
-import { SqlResponse } from '../types/sqlQuery';
-import { sqlQuery } from '../utils/sqlQuery';
+import { SqlResponse } from '../types/sql-query';
+import { sqlQuery } from '../utils/sql-query';
 import { Dashboard } from '../interfaces/Dashboard';
 
 const DashboardModel: Dashboard = {
@@ -17,6 +17,20 @@ const DashboardModel: Dashboard = {
 
 		console.log('2.) Dashboard(model) getAllUsersCount result:', result);
 		console.dir(result);
+
+		return result;
+	},
+
+	getMostActiveUsers: (): Promise<SqlResponse> => {
+		const result = sqlQuery(`
+			SELECT 
+				users.user_id, username
+			FROM 
+				users
+			INNER JOIN comments ON
+				comments.user_id
+			WHERE 
+				comments.created_at BETWEEN curdate() AND curdate() - 7;`);
 
 		return result;
 	}

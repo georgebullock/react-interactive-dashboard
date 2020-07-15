@@ -1,6 +1,6 @@
 require('dotenv').config({ path: './../../.env' });
 import mysql, { Pool } from 'mysql';
-import { MySQLConnection } from './../interfaces/mySqlConnection';
+import { MySQLConnection } from '../interfaces/mysql-connection';
 
 const createConnection = (): MySQLConnection => {
 	let connection: Pool;

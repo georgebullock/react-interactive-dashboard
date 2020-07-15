@@ -1,9 +1,7 @@
 require('dotenv').config({ path: './../../.env' });
-import sql from './../models/db';
-import { SqlResponse } from '../types/sqlQuery';
+import sql from '../models/db';
+import { SqlResponse } from '../types/sql-query';
 import { isArray } from 'util';
-// import { QueryResponse, QueryError } from '../types/sqlQuery';
-// import { Query } from 'mysql';
 
 export const sqlQuery = (
 	query: string,

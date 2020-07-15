@@ -1,6 +1,6 @@
 import UserModel from './../models/user.model';
 import { User } from '../types/user';
-import { SqlResponse } from '../types/sqlQuery';
+import { SqlResponse } from '../types/sql-query';
 
 // User Service is a collection of methods to handle CRUD for user concerns
 const UserService = function(): void {

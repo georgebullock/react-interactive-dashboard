@@ -1,7 +1,7 @@
 require('dotenv').config({ path: './../../.env' });
-import { SqlResponse } from '../types/sqlQuery';
+import { SqlResponse } from '../types/sql-query';
 import { User } from '../types/user';
-import { sqlQuery } from './../utils/sqlQuery';
+import { sqlQuery } from '../utils/sql-query';
 
 const UserModel = function(
 	this: User,
